@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>SlideShow</title>
+      <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<head>    
+    
+</head>
+<body>
+
+<center>
+<h2>ยินดีต้อนรับ : <?php echo $this->session->userdata('username'); ?></h2><br>
+
+		<a href="homeshipping/shipping">จัดการรายการจัดส่งสินค้า</a><br><br><br>
+
+		
+   
+		<a href="/~b552535009/index.php/homeshipping/logout">ออกจากระบบ</a>
+	
+</body>
+</html>

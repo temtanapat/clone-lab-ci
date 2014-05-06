@@ -1,0 +1,86 @@
+
+<?php
+Class user extends CI_Model
+{
+
+	var $id; //รหัสผู้ใช้งานเข้าสู่ระบบ
+	var $username; //ชื่อผู้ใช้งานเข้าสู่ระบบ
+	var $password; //รหัสผ่านผู้ใช้งานเข้าสู่ระบบ
+	var $classid; //กำหนดผู้ใช้งานเข้าสู่ระบบ
+
+function __construct()
+{
+parent::__construct();
+}
+
+	###### SET : id (รหัสผู้ใช้งานเข้าสู่ระบบ) ######
+	function setId($id)
+	{
+		$this->id = $id;
+	}
+
+	###### GET : id (รหัสผู้ใช้งานเข้าสู่ระบบ) ######
+	function getId()
+	{
+		return $this->id;
+	}
+
+		###### SET : username (ชื่อผู้ใช้งานเข้าสู่ระบบ) ######
+	function setUsername($username)
+	{
+		$this->username = $username;
+	}
+
+	###### GET : username (ชื่อผู้ใช้งานเข้าสู่ระบบ) ######
+	function getUsername()
+	{
+		return $this->username;
+	}
+
+
+		###### SET : password (รหัสผ่านผู้ใช้งานเข้าสู่ระบบ) ######
+	function setPassword($password)
+	{
+		$this->password = $password;
+	}
+
+	###### GET : password (รหัสผ่านผู้ใช้งานเข้าสู่ระบบ) ######
+	function getPassword()
+	{
+		return $this->password;
+	}
+	
+		###### SET : classid (กำหนดผู้ใช้งานเข้าสู่ระบบ) ######
+	function setClassid($classid)
+	{
+		$this->classid = $classid;
+	}
+
+	###### GET : classid (กำหนดผู้ใช้งานเข้าสู่ระบบ) ######
+	function getClassid()
+	{
+		return $this->classid;
+	}
+
+		 function login($username, $password)
+		 {
+		   $this -> db -> select('id, username, password, classId');
+		   $this -> db -> from('user');
+		   $this -> db -> where('username', $username);
+		   $this -> db -> where('password', $password);
+		   $this -> db -> limit(1);
+		   
+		   $query = $this -> db -> get();
+
+		   if($query -> num_rows() == 1)
+		   {
+			 return $query->row();
+		   }
+		   else
+		   {
+			 return false;
+		   }
+		 }
+		}
+		?>
+
